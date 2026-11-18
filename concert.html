@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCSA My Concert</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <a href="index.html" class="nav-blue">YOUR CITY</a>
+        <a href="profile.html" class="nav-red">MY PROFILE</a>
+        <a href="concert.html" class="nav-yellow">Concerts</a>
+        <a href="blackbook.html" class="nav-white">Explore<br>The Black Book</a>
+        <a href="#" class="nav-purple">Maps</a>
+    </nav>
+    <button id="menu-btn" aria-label="Open menu">&#9776;</button>
+
+    <header>
+        <h1>CCSA (Concerts Company South Africa)</h1>
+    </header>
+
+    <div id="city-map"></div>
+
+    <aside id="city-panel" class="open">
+        <h2>My Concert</h2>
+        <div class="blackbook-image"></div>
+        <p>Tonight Friday 1st September Drake is performing at the DHL Stadium in Cape Town!!</p>
+        <p>How was your concert experience with Drake @ DHL?</p>
+        <div class="panel-buttons">
+            <button>Contribute</button>
+            <button>Save a spot</button>
+            <button>Share</button>
+        </div>
+    </aside>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="concert.js"></script>
+</body>
+</html>

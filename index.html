@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCSA (Concerts Company South Africa)</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <a href="index.html" class="nav-blue">YOUR CITY</a>
+        <a href="profile.html" class="nav-red">MY PROFILE</a>
+        <a href="concert.html" class="nav-yellow">Concerts</a>
+        <a href="blackbook.html" class="nav-white">Explore<br>The Black Book</a>
+        <a href="#" class="nav-purple">Maps</a>
+    </nav>
+    <button id="menu-btn" aria-label="Open menu">&#9776;</button>
+
+    <div id="map"></div>
+
+    <header>
+        <h1>CCSA (Concerts Company South Africa)</h1>
+    </header>
+
+    <main class="cities">
+        <a href="city.html?city=jhb" class="card">
+            <img src="images/jhb.jpg" alt="Sketch of a jazz band playing in Johannesburg">
+            <span>JHB</span>
+        </a>
+        <a href="city.html?city=cpt" class="card">
+            <img src="images/cpt.jpg" alt="Sketch of a pianist playing in Cape Town">
+            <span>CPT</span>
+        </a>
+        <a href="city.html?city=dbn" class="card">
+            <img src="images/dbn.jpg" alt="Sketch of a musician performing in Durban">
+            <span>DBN</span>
+        </a>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
