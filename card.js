@@ -60,12 +60,14 @@ function renderCard(box, spot, key, onChange) {
     box.hidden = false;
     box.innerHTML =
         '<button type="button" class="save-btn" aria-label="Save spot" aria-pressed="' + saved + '">' + (saved ? '&#9829;' : '&#9825;') + '</button>' +
-        '<img src="' + spot.image + '" alt="">' +
+        '<img class="spot-photo" alt="">' +
         '<div class="rest-card-info"><a href="blackbook.html" class="b-badge small">B</a><p>' + spot.blurb + '</p></div>' +
         '<h2>' + spot.name + '</h2>' +
         '<div class="rest-card-meta"><span>' + spot.type + '</span><span>&#9733; ' + displayRating(spot, key) + '/5</span></div>' +
         '<div class="rest-card-links"><a href="' + directions + '" target="_blank" rel="noopener">Directions</a>' + insta + phone + '</div>' +
         '<button type="button" class="top-btn" aria-pressed="' + isTop + '">' + topLabel(isTop) + '</button>';
+
+    loadPhoto(box.querySelector('.spot-photo'), spot.photo, spot.image);
 
     box.querySelector('.save-btn').addEventListener('click', () => {
         const now = toggleSaved(key);

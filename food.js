@@ -3,7 +3,7 @@ const cityKey = CITY_DATA[params.get('city')] ? params.get('city') : 'jhb';
 const cat = CATEGORIES[params.get('cat')] ? params.get('cat') : 'food';
 const city = CITY_DATA[cityKey];
 
-const SPOT_LABELS = { food: 'Food spots', shopping: 'Shopping spots', concert: 'Concert spots' };
+const SPOT_LABELS = { food: 'Food spots', shopping: 'Shopping spots', concert: 'Venue spots' };
 
 document.getElementById('city-title').textContent = CITY_NAMES[cityKey];
 document.getElementById('cat-headline').textContent = CATEGORIES[cat].headline;

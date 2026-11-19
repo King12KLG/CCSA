@@ -8,7 +8,7 @@ const key = cat + '-' + cityKey + '-' + index;
 const card = document.getElementById('rest-card');
 
 document.getElementById('city-title').textContent = CITY_NAMES[cityKey];
-document.getElementById('rest-photo').src = spot.image;
+document.getElementById('rest-photo').src = CITY_DATA[cityKey].image;
 document.getElementById('rest-blurb').textContent = spot.blurb;
 document.getElementById('rate-question').textContent = 'What is your rating of ' + spot.name + '?';
 

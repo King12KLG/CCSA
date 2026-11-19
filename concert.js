@@ -9,8 +9,10 @@ if (!CONCERTS[cityKey]) cityKey = 'cpt';
 
 try { localStorage.setItem('ccsaCity', cityKey); } catch (e) { /* ignore */ }
 
+// Put the city in the address so Share sends the right concert
+try { history.replaceState(null, '', '?city=' + cityKey); } catch (e) { /* ignore */ }
+
 const show = CONCERTS[cityKey];
-const when = concertTiming(show.date);
 
 // badge.js reads this to show the right city badge
 document.body.dataset.city = cityKey;
@@ -36,26 +38,12 @@ const exploreLink = document.getElementById('explore-city');
 exploreLink.href = 'city.html?city=' + cityKey;
 exploreLink.textContent = 'Explore ' + show.cityName;
 
-// Profile pic
-const photo = document.getElementById('blackbook-photo');
-try {
-    const user = JSON.parse(localStorage.getItem('ccsaUser'));
-    if (user && user.photo) {
-        photo.src = user.photo;
-    } else {
-        photo.hidden = true;
-    }
-} catch (e) {
-    photo.hidden = true;
-}
+// Left panel image: the artist fills the box
+const concertPhoto = document.getElementById('concert-photo');
+concertPhoto.alt = show.artist;
+loadPhoto(concertPhoto, show.photo, 'images/' + cityKey + '.jpg');
 
-// Purple box
-const artistImg = document.getElementById('artist-img');
-artistImg.src = show.image;
-artistImg.alt = show.artist;
-artistImg.addEventListener('error', () => { artistImg.style.opacity = '0'; });
-
-const prefix = when === 'today' ? 'TONIGHT' : concertDateShort(show.date).toUpperCase();
+// Purple box title
 document.getElementById('cc-title').textContent =
     'TONIGHT: ' + show.artist.toUpperCase() + ' @ ' + show.venueShort.toUpperCase();
 

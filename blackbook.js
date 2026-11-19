@@ -1,4 +1,4 @@
-const CAT_LABELS = { food: 'Food', shopping: 'Shopping', concert: 'Concerts' };
+const CAT_LABELS = { food: 'Food', shopping: 'Shopping', concert: 'Venues' };
 
 function getNotes() {
     try { return JSON.parse(localStorage.getItem('ccsaNotes')) || {}; }
@@ -78,7 +78,7 @@ function updatePins() {
     }
 }
 
-// Top spots
+// My Top Spots
 const topList = document.getElementById('top-spots-list');
 
 function drawTopSpots() {

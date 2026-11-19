@@ -12,7 +12,7 @@ const cities = {
         short: 'CPT',
         color: 'deepskyblue',
         image: 'images/cpt.jpg',
-        text: 'A short description of Cape Town goes here.',
+        text: `Cape Town, the Mother City, a booming, multicultural harbour metropolis where mountain meets ocean rhythm and every night promises something bolder, cooler, unforgettable. From jazz cellars to rooftop sundowners. Welcome to the city where the mountain meets the music.`,
         coords: [-33.9249, 18.4241]
     },
     dbn: {
@@ -20,7 +20,7 @@ const cities = {
         short: 'DBN',
         color: 'limegreen',
         image: 'images/dbn.jpg',
-        text: 'A short description of Durban goes here.',
+        text: `Durban, the Golden Mile’s own, a sun-soaked, salt-air metropolis where surf culture meets street flavour and every night promises something spicier, sweatier, unforgettable. From beachfront bars to rooftop parties. Welcome to the city that brings the heat.`,
         coords: [-29.8587, 31.0218]
     }
 };
