@@ -38,10 +38,13 @@ const exploreLink = document.getElementById('explore-city');
 exploreLink.href = 'city.html?city=' + cityKey;
 exploreLink.textContent = 'Explore ' + show.cityName;
 
-// Left panel image: the artist fills the box
-const concertPhoto = document.getElementById('concert-photo');
-concertPhoto.alt = show.artist;
-loadPhoto(concertPhoto, show.photo, 'images/' + cityKey + '.jpg');
+// Artist photo in the left panel and in the purple card
+['concert-photo', 'artist-img'].forEach(id => {
+    const img = document.getElementById(id);
+    if (!img) return;
+    img.alt = show.artist;
+    loadPhoto(img, show.photo, 'images/' + cityKey + '.jpg');
+});
 
 // Purple box title
 document.getElementById('cc-title').textContent =

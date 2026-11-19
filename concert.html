@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="loader.js"></script>
     <nav id="sidebar">
         <a href="index.html" class="nav-blue">YOUR CITY</a>
         <a href="profile.html" class="nav-red">MY PROFILE</a>
-        <a href="concert.html" class="nav-yellow">My Concert</a>
+        <a href="concert.html" class="nav-yellow">Concerts</a>
         <a href="blackbook.html" class="nav-white">Explore<br>The Black Book</a>
+        <a href="#" class="nav-purple">Maps</a>
     </nav>
     <button id="menu-btn" aria-label="Open menu">&#9776;</button>
 
@@ -50,10 +50,13 @@
     </aside>
 
     <div class="concert-card" id="concert-card">
-        <div class="cc-tabs">
-            <button type="button" class="cc-tab active" data-tab="concert" aria-pressed="true">MY CONCERT</button>
-            <button type="button" class="cc-tab" data-tab="tips" aria-pressed="false">Concert Tips</button>
-            <button type="button" class="cc-tab" data-tab="artist" aria-pressed="false">Your Artist</button>
+        <div class="concert-card-top">
+            <img id="artist-img" src="" alt="">
+            <div class="cc-tabs">
+                <button type="button" class="cc-tab active" data-tab="concert" aria-pressed="true">MY CONCERT</button>
+                <button type="button" class="cc-tab" data-tab="tips" aria-pressed="false">Concert Tips</button>
+                <button type="button" class="cc-tab" data-tab="artist" aria-pressed="false">Your Artist</button>
+            </div>
         </div>
 
         <div class="concert-card-body" id="cc-body"></div>

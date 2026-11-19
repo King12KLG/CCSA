@@ -126,8 +126,8 @@ async function loadWeather() {
 
 loadWeather();
 
-// GSAP timeline: the city page builds itself in sequence once the book has opened
-gsap.timeline({ delay: 1.2, defaults: { ease: 'power3.out' } })
+// GSAP timeline: the city page builds itself in sequence when it loads
+gsap.timeline({ delay: 0.2, defaults: { ease: 'power3.out' } })
     .from('#city-title', { y: -20, opacity: 0, duration: 0.5 })
     .from('#panel-text', { x: -30, opacity: 0, duration: 0.5 }, '-=0.2')
     .from('#panel-image', { scale: 0.9, opacity: 0, duration: 0.6 }, '-=0.2')
