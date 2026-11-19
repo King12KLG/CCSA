@@ -1319,3 +1319,116 @@ header h1 {
     font-size: 1rem;
     cursor: pointer;
 }
+/* ===== Balance, ratings row, note and copyright ===== */
+
+/* Reviews row in the pink box */
+.rest-card-reviews {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.rest-card .rate-now {
+    color: white;
+}
+
+/* Cards sit at the same height and never run off the screen */
+.rest-card,
+.concert-card {
+    top: 90px;
+    max-height: calc(100vh - 240px);
+    overflow-y: auto;
+}
+
+/* The hint note: smaller, beside the badge */
+#ccsa-note {
+    max-width: 150px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+}
+
+/* Copyright box at the bottom of every page */
+body::after {
+    content: "© 2026 Concerts Company South Africa";
+    position: fixed;
+    left: 12px;
+    bottom: 12px;
+    z-index: 1200;
+    padding: 4px 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ccc;
+    font-family: Georgia, serif;
+    font-size: 0.7rem;
+    pointer-events: none;
+}
+
+/* Narrower screens: cards drop to the bottom, the badge moves to the top, nothing overlaps */
+@media (max-width: 1000px) {
+    .rest-card,
+    .concert-card {
+        top: auto;
+        bottom: 70px;
+        left: auto;
+        right: 10px;
+        width: 300px;
+        max-height: 55vh;
+    }
+
+    .rest-card:not([hidden]) ~ #city-badge,
+    .concert-card ~ #city-badge {
+        bottom: auto;
+        top: 80px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .rest-card,
+    .concert-card {
+        left: 10px;
+        right: 10px;
+        width: auto;
+    }
+
+    body::after {
+        bottom: 48px;
+        left: 8px;
+        font-size: 0.6rem;
+    }
+}
+/* Weather box */
+.weather-box {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border: 2px solid #f5a623;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    line-height: 1.35;
+}
+
+.weather-box strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+.weather-box small {
+    color: #f5a623;
+}
+
+.weather-box .weather-error {
+    color: #ff9a9a;
+}
+
+.weather-box button {
+    margin-top: 8px;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 12px;
+    background: #f5a623;
+    font-family: Georgia, serif;
+    cursor: pointer;
+}

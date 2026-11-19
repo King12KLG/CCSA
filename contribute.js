@@ -1,5 +1,5 @@
 // A small note that fades away on its own.
-// ccsaNote(text, seconds, anchorElement): with an anchor it sits next to that element.
+// ccsaNote(text, seconds, anchorElement): with an anchor it sits beside that element.
 (function () {
     let timer = null;
 
@@ -26,13 +26,11 @@
         note.style.transform = 'none';
 
         if (anchor) {
+            // To the left of the anchor, centred on it
             const r = anchor.getBoundingClientRect();
-            note.style.right = Math.max(10, window.innerWidth - r.right) + 'px';
-            if (r.top > 130) {
-                note.style.bottom = (window.innerHeight - r.top + 10) + 'px';
-            } else {
-                note.style.top = (r.bottom + 10) + 'px';
-            }
+            note.style.right = (window.innerWidth - r.left + 10) + 'px';
+            note.style.top = (r.top + r.height / 2) + 'px';
+            note.style.transform = 'translateY(-50%)';
         } else {
             note.style.left = '50%';
             note.style.bottom = '80px';

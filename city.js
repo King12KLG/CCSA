@@ -72,3 +72,65 @@ menuBtn.addEventListener('click', () => {
         window.location.href = 'food.html?city=' + cityKey + '&cat=' + cat;
     });
 });
+
+// Live weather from the free Open-Meteo API
+const weatherBox = document.getElementById('weather-box');
+
+const WEATHER_WORDS = {
+    0: 'Clear sky', 1: 'Mostly clear', 2: 'Partly cloudy', 3: 'Cloudy',
+    45: 'Foggy', 48: 'Foggy',
+    51: 'Light drizzle', 53: 'Drizzle', 55: 'Heavy drizzle',
+    61: 'Light rain', 63: 'Rain', 65: 'Heavy rain',
+    80: 'Showers', 81: 'Showers', 82: 'Heavy showers',
+    95: 'Thunderstorm', 96: 'Thunderstorm', 99: 'Thunderstorm'
+};
+
+async function loadWeather() {
+    // Loading state
+    weatherBox.innerHTML = 'Loading tonight\'s weather...';
+
+    try {
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + city.coords[0] +
+            '&longitude=' + city.coords[1] +
+            '&current=temperature_2m,precipitation,weather_code&timezone=auto';
+
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('Request failed');
+
+        const data = await res.json();
+        const now = data.current;
+
+        // Empty state
+        if (!now || now.temperature_2m === undefined) {
+            weatherBox.innerHTML = 'No weather information is available for ' + city.name + ' right now.';
+            return;
+        }
+
+        // Success state
+        const words = WEATHER_WORDS[now.weather_code] || 'Mild conditions';
+        const tip = now.precipitation > 0 ? 'Rain around, pack a jacket.' : 'Looks dry, enjoy the show!';
+
+        weatherBox.innerHTML =
+            '<small>' + city.name + ' right now</small>' +
+            '<strong>' + Math.round(now.temperature_2m) + '&deg;C</strong>' +
+            words + '. ' + tip;
+    } catch (err) {
+        // Error state with a retry button
+        weatherBox.innerHTML =
+            '<span class="weather-error">Weather is unavailable right now. Check your connection and try again.</span>' +
+            '<br><button type="button" id="weather-retry">Try again</button>';
+
+        document.getElementById('weather-retry').addEventListener('click', loadWeather);
+    }
+}
+
+loadWeather();
+
+// GSAP timeline: the city page builds itself in sequence once the book has opened
+gsap.timeline({ delay: 1.2, defaults: { ease: 'power3.out' } })
+    .from('#city-title', { y: -20, opacity: 0, duration: 0.5 })
+    .from('#panel-text', { x: -30, opacity: 0, duration: 0.5 }, '-=0.2')
+    .from('#panel-image', { scale: 0.9, opacity: 0, duration: 0.6 }, '-=0.2')
+    .from('.category-list button', { x: -30, opacity: 0, stagger: 0.12, duration: 0.4 }, '-=0.2')
+    .from('.blackbook-link', { y: 20, opacity: 0, duration: 0.4 }, '-=0.1')
+    .from('#city-badge', { scale: 0, duration: 0.5, ease: 'back.out(1.7)' });

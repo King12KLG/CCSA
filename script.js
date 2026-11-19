@@ -31,5 +31,6 @@ gsap.from('.card', {
     opacity: 0,
     duration: 0.8,
     stagger: 0.2,
-    ease: 'power3.out'
+    ease: 'power3.out',
+    delay: 1.2
 });

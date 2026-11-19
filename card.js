@@ -63,11 +63,28 @@ function renderCard(box, spot, key, onChange) {
         '<img class="spot-photo" alt="">' +
         '<div class="rest-card-info"><a href="blackbook.html" class="b-badge small">B</a><p>' + spot.blurb + '</p></div>' +
         '<h2>' + spot.name + '</h2>' +
-        '<div class="rest-card-meta"><span>' + spot.type + '</span><span>&#9733; ' + displayRating(spot, key) + '/5</span></div>' +
+        '<div class="rest-card-meta"><span>' + spot.type + '</span></div>' +
+        '<div class="rest-card-reviews"><span>User reviews</span><span>&#9733; ' + displayRating(spot, key) + '/5 &middot; <button type="button" class="rate-now">RATE NOW</button></span></div>' +
         '<div class="rest-card-links"><a href="' + directions + '" target="_blank" rel="noopener">Directions</a>' + insta + phone + '</div>' +
         '<button type="button" class="top-btn" aria-pressed="' + isTop + '">' + topLabel(isTop) + '</button>';
 
     loadPhoto(box.querySelector('.spot-photo'), spot.photo, spot.image);
+
+    // RATE NOW jumps to the stars, or opens the spot page if there are no stars on this page
+    box.querySelector('.rate-now').addEventListener('click', () => {
+        const stars = document.getElementById('stars');
+
+        if (stars) {
+            const panel = document.getElementById('city-panel');
+            if (panel) panel.classList.add('open');
+            stars.scrollIntoView({ block: 'center', behavior: 'smooth' });
+            const first = stars.querySelector('button');
+            if (first) first.focus({ preventScroll: true });
+        } else {
+            const p = key.split('-');
+            window.location.href = 'restaurant.html?city=' + p[1] + '&cat=' + p[0] + '&spot=' + p[2];
+        }
+    });
 
     box.querySelector('.save-btn').addEventListener('click', () => {
         const now = toggleSaved(key);
