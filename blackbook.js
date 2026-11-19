@@ -179,3 +179,12 @@ drawCitySpots();
 document.querySelectorAll('details.acc').forEach(section => {
     section.addEventListener('toggle', updatePins);
 });
+
+// Arriving from the profile page via blackbook.html#top-spots
+if (location.hash === '#top-spots') {
+    const topSection = document.getElementById('top-spots-section');
+    if (topSection) {
+        topSection.open = true;
+        topSection.scrollIntoView();
+    }
+}

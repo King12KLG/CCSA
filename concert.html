@@ -24,10 +24,24 @@
     <div id="city-map"></div>
 
     <aside id="city-panel" class="open">
-        <h2>My Concert</h2>
-        <div class="blackbook-image"></div>
-        <p>Tonight Friday 1st September Drake is performing at the DHL Stadium in Cape Town!!</p>
-        <p>How was your concert experience with Drake @ DHL?</p>
+        <div class="concert-head">
+            <span class="b-badge concert small">&#9834;</span>
+            <h2>My Concert</h2>
+        </div>
+
+        <div class="blackbook-image">
+            <img id="blackbook-photo" src="" alt="Your profile photo">
+        </div>
+
+        <p id="concert-text" class="panel-note"></p>
+
+        <div class="rate-box concert-rate">
+            <span id="rate-question"></span>
+        </div>
+        <div class="stars" id="stars" aria-label="Your rating"></div>
+
+        <a id="explore-city" href="city.html" class="concert-btn">Explore</a>
+
         <div class="panel-buttons">
             <button>Contribute</button>
             <button>Save a spot</button>
@@ -35,8 +49,29 @@
         </div>
     </aside>
 
+    <div class="concert-card" id="concert-card">
+        <div class="concert-card-top">
+            <img id="artist-img" src="" alt="">
+            <div class="cc-tabs">
+                <button type="button" class="cc-tab active" data-tab="concert" aria-pressed="true">MY CONCERT</button>
+                <button type="button" class="cc-tab" data-tab="tips" aria-pressed="false">Concert Tips</button>
+                <button type="button" class="cc-tab" data-tab="artist" aria-pressed="false">Your Artist</button>
+            </div>
+        </div>
+
+        <div class="concert-card-body" id="cc-body"></div>
+
+        <h2 id="cc-title"></h2>
+        <div class="concert-card-foot">
+            <span>User reviews</span>
+            <span><span id="cc-rating"></span> &middot; <button type="button" class="rate-now" id="rate-now">RATE NOW</button></span>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="concerts-data.js"></script>
     <script src="concert.js"></script>
     <script src="contribute.js"></script>
+    <script src="badge.js"></script>
 </body>
 </html>

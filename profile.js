@@ -20,6 +20,16 @@ if (saved) {
     }
 }
 
+const resetBtn = document.getElementById('reset-profile');
+if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+        if (confirm('Reset your profile? You will be taken back to the welcome page to set it up again.')) {
+            localStorage.removeItem('ccsaUser');
+            window.location.href = 'welcome.html';
+        }
+    });
+}
+
 const menuBtn = document.getElementById('menu-btn');
 const sidebar = document.getElementById('sidebar');
 

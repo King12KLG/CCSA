@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="is-profile">
     <nav id="sidebar">
         <a href="index.html" class="nav-blue">YOUR CITY</a>
         <a href="profile.html" class="nav-red">MY PROFILE</a>
@@ -24,17 +24,35 @@
     <div id="city-map"></div>
 
     <aside id="city-panel" class="open">
-        <h2 id="profile-name">Your Profile</h2>
-        <img id="profile-photo" class="profile-photo" src="" alt="Your profile photo">
-        <ul class="profile-links">
-            <li>My posts</li>
-            <li>Saved posts</li>
-            <li>Settings</li>
-        </ul>
-        <div class="profile-badges">
-            <span>My Concert</span>
-            <span>My Black Book</span>
+        <div class="profile-head">
+            <svg class="profile-icon" viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="24" r="24" fill="#e11d1d"/>
+                <circle cx="24" cy="19" r="8" fill="#111"/>
+                <path d="M8 40c2-9 9-12 16-12s14 3 16 12a24 24 0 0 1-32 0z" fill="#111"/>
+            </svg>
+            <h2 id="profile-name">Your Profile</h2>
         </div>
+
+        <img id="profile-photo" class="profile-photo" src="" alt="Your profile photo">
+
+        <div class="profile-row">
+            <div class="profile-links">
+                <a href="blackbook.html#top-spots" class="blue-btn">Top spots</a>
+                <button type="button" id="reset-profile" class="blue-btn">Reset profile</button>
+            </div>
+
+            <div class="profile-badges">
+                <a href="concert.html" class="mini-badge">
+                    <span class="b-badge concert">&#9834;</span>
+                    <span>My Concert</span>
+                </a>
+                <a href="blackbook.html" class="mini-badge">
+                    <span class="b-badge">B</span>
+                    <span>My Black Book</span>
+                </a>
+            </div>
+        </div>
+
         <div class="panel-buttons">
             <button>Contribute</button>
             <button>Save a spot</button>
@@ -45,5 +63,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="profile.js"></script>
     <script src="contribute.js"></script>
+    <script src="badge.js"></script>
 </body>
 </html>
