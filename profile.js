@@ -11,7 +11,6 @@ menuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('open');
 });
 
-// Fill in the signed-in user's details
 const saved = localStorage.getItem('ccsaUser');
 
 if (saved) {

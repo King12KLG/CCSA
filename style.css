@@ -6,10 +6,14 @@ body {
 header {
     position: relative;
     z-index: 1;
+    height: 70px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
     background: black;
     color: white;
-    text-align: center;
-    padding: 10px;
 }
 
 header h1 {
@@ -17,16 +21,6 @@ header h1 {
     font-family: Georgia, serif;
     font-weight: normal;
     font-size: 1.8rem;
-}
-
-.back {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    text-decoration: none;
-    font-family: Georgia, serif;
 }
 
 /* Home page map and city cards */
@@ -85,7 +79,7 @@ header h1 {
     left: 0;
     bottom: 0;
     width: 210px;
-    z-index: 5;
+    z-index: 2000;
     background: #0a0a0a;
     display: flex;
     flex-direction: column;
@@ -116,7 +110,7 @@ header h1 {
     position: fixed;
     top: 6px;
     left: 12px;
-    z-index: 10;
+    z-index: 2100;
     background: none;
     border: none;
     color: white;
@@ -124,14 +118,14 @@ header h1 {
     cursor: pointer;
 }
 
-/* City page */
+/* City, profile, Black Book and concert pages */
 #city-map {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 70px);
 }
 
 #city-panel {
     position: absolute;
-    top: 60px;
+    top: 70px;
     left: 0;
     bottom: 0;
     width: 280px;
@@ -141,7 +135,7 @@ header h1 {
     font-family: Georgia, serif;
     padding: 20px;
     box-sizing: border-box;
-    border-radius: 0 40px 0 0;
+    border-radius: 0;
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
@@ -159,6 +153,46 @@ header h1 {
     border-radius: 20px;
 }
 
+.profile-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 6px solid deepskyblue;
+    border-radius: 24px;
+}
+
+.blackbook-image {
+    height: 200px;
+    background: #f5a623;
+    border: 6px solid #f5a623;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.blackbook-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.panel-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.panel-buttons button {
+    flex: 1;
+    padding: 8px 4px;
+    border: none;
+    border-radius: 20px;
+    background: #f5a623;
+    font-family: Georgia, serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* City badge */
 #city-badge {
     position: fixed;
     right: 20px;
@@ -190,55 +224,18 @@ header h1 {
     font-size: 1.6rem;
     color: goldenrod;
 }
-#sidebar {
-    z-index: 2000;
-}
 
-#menu-btn {
-    z-index: 2100;
-}
-header {
-    height: 70px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-#city-panel {
-    top: 70px;
-}
-
-#city-map {
-    height: calc(100vh - 70px);
-}
-#city-panel {
-    border-radius: 0;
-}
-.blackbook-image {
-    height: 200px;
-    background: #f5a623;
-    border-radius: 20px;
-}
-.profile-photo {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border: 6px solid deepskyblue;
-    border-radius: 24px;
-}
+/* Contribute message */
 #contribute-note {
     position: fixed;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
     z-index: 3000;
+    max-width: 160px;
+    padding: 6px 12px;
     background: #f5a623;
     color: black;
     font-family: Georgia, serif;
-    padding: 12px 22px;
-    border-radius: 20px;
+    font-size: 0.75rem;
+    border-radius: 12px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -247,28 +244,122 @@ header {
 #contribute-note.show {
     opacity: 1;
 }
-#contribute-note {
-    bottom: auto;
-    transform: none;
-    max-width: 220px;
-    font-size: 0.85rem;
-}
-#contribute-note {
-    max-width: 160px;
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    border-radius: 12px;
-}
-.blackbook-image {
-    overflow: hidden;
+
+/* Concert menu */
+.concerts-body {
+    margin: 0;
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: white;
+    font-family: Georgia, serif;
 }
 
-.blackbook-image img {
+#bg-video {
+    position: fixed;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: blur(8px) brightness(0.5);
+    transform: scale(1.1);
+    z-index: -1;
 }
-.blackbook-image {
-    border: 6px solid deepskyblue;
+
+.concerts-back {
+    position: fixed;
+    top: 16px;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.concerts-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.concerts-content h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+#concert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.concert-option {
+    display: block;
+    min-width: 280px;
+    padding: 18px 26px;
+    border: 3px solid #f5a623;
     border-radius: 24px;
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    text-decoration: none;
+}
+
+.concert-option strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.concert-option span {
+    color: #f5a623;
+}
+
+/* Sign-in page */
+.welcome-body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #0a0a0a;
+    font-family: Georgia, serif;
+    color: white;
+}
+
+.welcome-card {
+    width: min(420px, 90vw);
+    padding: 30px;
+    background: #151515;
+    border: 4px solid #f5a623;
+    border-radius: 24px;
+}
+
+.welcome-card h1 {
+    margin: 0 0 6px;
+    font-weight: normal;
+}
+
+.welcome-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.welcome-card input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-family: inherit;
+}
+
+.welcome-card button {
+    margin-top: 14px;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background: #f5a623;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
 }
