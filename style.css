@@ -145,12 +145,69 @@ header h1 {
     transform: translateX(0);
 }
 
+#panel-text {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
 #panel-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border: 4px solid #f5a623;
     border-radius: 20px;
+}
+
+.category-title {
+    margin: 20px 0 10px;
+    font-weight: normal;
+    font-size: 1.4rem;
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category-list button {
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background: #f5a623;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Explore The Black Book link */
+.blackbook-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.b-badge {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 3px solid #b8721d;
+    border-radius: 50%;
+    background: #f5e0c0;
+    color: #5a3510;
+    font-family: Georgia, serif;
+    font-size: 1.6rem;
+}
+
+.b-text {
+    font-size: 0.85rem;
+    line-height: 1.25;
 }
 
 .profile-photo {
@@ -362,4 +419,423 @@ header h1 {
     font-family: inherit;
     font-size: 1rem;
     cursor: pointer;
+}
+.panel-note {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+#food-text {
+    margin: 16px 0 0;
+}
+/* Restaurant page */
+.blackbook-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.b-badge.small {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.rest-photo {
+    height: 200px;
+    border: 6px solid #f5a623;
+    border-radius: 24px;
+    background: #f5a623;
+    overflow: hidden;
+}
+
+.rest-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rate-box {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border: 4px solid #e6007e;
+    border-radius: 18px;
+    background: #f58fc8;
+    color: black;
+    line-height: 1.3;
+}
+
+.stars {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.stars button {
+    border: none;
+    background: none;
+    color: #555;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.stars button.on {
+    color: #f5d90a;
+}
+
+.rest-card {
+    position: fixed;
+    top: 150px;
+    right: 40px;
+    z-index: 1050;
+    width: 300px;
+    padding: 14px;
+    border-radius: 22px;
+    background: #e6007e;
+    color: white;
+    font-family: Georgia, serif;
+}
+
+.rest-card > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    float: left;
+    margin-right: 12px;
+}
+
+.rest-card-info {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    min-height: 100px;
+}
+
+.rest-card-info p {
+    margin: 0;
+    font-size: 0.7rem;
+}
+
+.rest-card h2 {
+    clear: both;
+    margin: 12px 0 6px;
+    font-weight: normal;
+    font-size: 1.3rem;
+}
+
+.rest-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+@media (max-width: 700px) {
+    .rest-card {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+}
+/* Spots switch */
+.spots-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border: 2px solid #f5a623;
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.spots-toggle .switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    border-radius: 999px;
+    background: #555;
+    transition: background 0.2s ease;
+}
+
+.spots-toggle .switch::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    transition: transform 0.2s ease;
+}
+
+.spots-toggle[aria-pressed="true"] .switch {
+    background: #f5a623;
+}
+
+.spots-toggle[aria-pressed="true"] .switch::after {
+    transform: translateX(20px);
+}
+/* Pink box extras */
+.rest-card[hidden] {
+    display: none;
+}
+
+.save-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.rest-card-info {
+    padding-right: 28px;
+}
+
+.rest-card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.rest-card-links a {
+    color: white;
+}
+
+.rest-card-links .muted {
+    opacity: 0.7;
+}
+
+/* Saved spots list */
+.saved-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.saved-list li button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    border: 2px solid #f5a623;
+    border-radius: 16px;
+    background: transparent;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.saved-list small {
+    display: block;
+    color: #f5a623;
+}
+
+.saved-list .state {
+    color: #aaa;
+}
+/* Black Book top spots */
+.top-spots {
+    margin-top: 20px;
+}
+
+.top-spots h3 {
+    margin: 0 0 10px;
+    font-weight: normal;
+    font-size: 1.4rem;
+}
+
+.top-spots ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.top-spots li {
+    padding: 10px 12px;
+    border: 2px solid #f5a623;
+    border-radius: 16px;
+}
+
+.top-spots li strong {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: normal;
+}
+
+.top-spots textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #222;
+    color: #f5a623;
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    resize: vertical;
+}
+/* Add as top spot button on the pink box */
+.top-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 16px;
+    background: transparent;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.top-btn[aria-pressed="true"] {
+    background: #f5d90a;
+    border-color: #f5d90a;
+    color: black;
+}
+
+/* Black Book top spots extras */
+.top-spots .top-name {
+    display: block;
+    color: white;
+    text-decoration: underline;
+}
+
+.top-spots li small {
+    display: block;
+    margin: 2px 0 6px;
+    color: #f5a623;
+}
+
+.top-spots .top-remove {
+    margin-top: 6px;
+    padding: 4px 12px;
+    border: 1px solid #f5a623;
+    border-radius: 12px;
+    background: transparent;
+    color: #f5a623;
+    font-family: Georgia, serif;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.top-spots .state {
+    padding: 10px 12px;
+    border: 2px dashed #555;
+    border-radius: 16px;
+    color: #aaa;
+    font-size: 0.85rem;
+}
+/* My Concert button */
+.concert-btn {
+    display: block;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 20px;
+    background: #f5a623;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+/* Collapsible sections */
+.acc {
+    margin-top: 12px;
+    border: 2px solid #f5a623;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.acc summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    list-style: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.acc summary::-webkit-details-marker {
+    display: none;
+}
+
+.acc summary::after {
+    content: '\25BE';
+    color: #f5a623;
+    transition: transform 0.2s ease;
+}
+
+.acc[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.acc > .top-spots,
+.acc > .city-spots {
+    margin-top: 0;
+    padding: 0 12px 12px;
+}
+
+/* City spot lists */
+.city-spots h4 {
+    margin: 10px 0 6px;
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: #f5a623;
+}
+
+.city-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.city-list a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.city-list a small {
+    display: block;
+    color: #f5a623;
 }

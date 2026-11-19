@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCSA Saved Spots</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="sidebar">
+        <a href="index.html" class="nav-blue">YOUR CITY</a>
+        <a href="profile.html" class="nav-red">MY PROFILE</a>
+        <a href="concert.html" class="nav-yellow">Concerts</a>
+        <a href="blackbook.html" class="nav-white">Explore<br>The Black Book</a>
+        <a href="#" class="nav-purple">Maps</a>
+    </nav>
+    <button id="menu-btn" aria-label="Open menu">&#9776;</button>
+
+    <header>
+        <h1>Saved spots</h1>
+    </header>
+
+    <div id="city-map"></div>
+
+    <aside id="city-panel" class="open">
+        <p class="panel-note">Your saved spots</p>
+        <ul id="saved-list" class="saved-list"></ul>
+
+        <div class="panel-buttons">
+            <button>Contribute</button>
+            <button>Share</button>
+        </div>
+    </aside>
+
+    <div class="rest-card" id="rest-card" hidden></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="spots.js"></script>
+    <script src="card.js"></script>
+    <script src="saved.js"></script>
+    <script src="contribute.js"></script>
+</body>
+</html>

@@ -28,7 +28,32 @@
         <div class="blackbook-image">
             <img id="blackbook-photo" src="" alt="Your profile photo">
         </div>
-        <p>This stores all your top recommended spots for other users to enjoy.</p>
+        <p>The Black Book is your personal little black book of the city. This stores all your top recommended spots for other users to enjoy. Add the places you love, jot down why they're worth the trip, and share your favourite food, shopping and concert finds with fans across South Africa.</p>
+
+        <a href="concert.html" class="concert-btn">My Concert</a>
+
+        <details class="acc">
+            <summary>Top spots</summary>
+            <div class="top-spots">
+                <ul id="top-spots-list"></ul>
+            </div>
+        </details>
+
+        <details class="acc" data-city="jhb">
+            <summary>JHB spots</summary>
+            <div class="city-spots"></div>
+        </details>
+
+        <details class="acc" data-city="cpt">
+            <summary>CPT spots</summary>
+            <div class="city-spots"></div>
+        </details>
+
+        <details class="acc" data-city="dbn">
+            <summary>DBN spots</summary>
+            <div class="city-spots"></div>
+        </details>
+
         <div class="panel-buttons">
             <button>Contribute</button>
             <button>Save a spot</button>
@@ -37,7 +62,10 @@
     </aside>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="spots.js"></script>
+    <script src="card.js"></script>
     <script src="profile.js"></script>
+    <script src="blackbook.js"></script>
     <script src="contribute.js"></script>
 </body>
 </html>

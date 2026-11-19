@@ -1,19 +1,26 @@
-const note = document.createElement('div');
-note.id = 'contribute-note';
-note.textContent = 'Email your suggestions';
-document.body.appendChild(note);
-
-let hideTimer;
+// Maps link goes back to the cities page
+document.querySelectorAll('.nav-purple').forEach(a => {
+    a.href = 'index.html';
+});
 
 document.querySelectorAll('.panel-buttons button').forEach(btn => {
-    if (btn.textContent.trim() === 'Contribute') {
+    const label = btn.textContent.trim();
+
+    if (label === 'Contribute') {
+        btn.textContent = 'Back';
         btn.addEventListener('click', () => {
-            const rect = btn.getBoundingClientRect();
-            note.classList.add('show');
-            note.style.left = rect.left + 'px';
-            note.style.top = (rect.top - note.offsetHeight - 10) + 'px';
-            clearTimeout(hideTimer);
-            hideTimer = setTimeout(() => note.classList.remove('show'), 1200);
+            if (history.length > 1) {
+                history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
+    if (label === 'Save a spot') {
+        btn.textContent = 'Saved spots';
+        btn.addEventListener('click', () => {
+            window.location.href = 'saved.html';
         });
     }
 });

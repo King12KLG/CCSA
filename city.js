@@ -4,8 +4,7 @@ const cities = {
         short: 'JHB',
         color: 'goldenrod',
         image: 'images/jhb.jpg',
-        headline: 'Eat the night away with these top 10 recommended burger spots!',
-        text: 'The city of gold has all the spots you need for a perfect post-concert meal.',
+        text: `Johannesburg the City of Gold, a booming, multicultural metropolis where skyline meets street rhythm and every night promises something louder, warmer, unforgettable. From jazz basements to rooftop parties, Jozi doesn’t just host the show it is the show. Welcome to the city that never sits still.`,
         coords: [-26.2041, 28.0473]
     },
     cpt: {
@@ -13,7 +12,6 @@ const cities = {
         short: 'CPT',
         color: 'deepskyblue',
         image: 'images/cpt.jpg',
-        headline: 'Your headline for Cape Town goes here.',
         text: 'A short description of Cape Town goes here.',
         coords: [-33.9249, 18.4241]
     },
@@ -22,17 +20,16 @@ const cities = {
         short: 'DBN',
         color: 'limegreen',
         image: 'images/dbn.jpg',
-        headline: 'Your headline for Durban goes here.',
         text: 'A short description of Durban goes here.',
         coords: [-29.8587, 31.0218]
     }
 };
 
 const params = new URLSearchParams(window.location.search);
-const city = cities[params.get('city')] || cities.jhb;
+const cityKey = cities[params.get('city')] ? params.get('city') : 'jhb';
+const city = cities[cityKey];
 
 document.getElementById('city-title').textContent = city.name;
-document.getElementById('panel-headline').textContent = city.headline;
 document.getElementById('panel-text').textContent = city.text;
 document.getElementById('panel-image').src = city.image;
 document.getElementById('badge-image').src = city.image;
@@ -68,4 +65,10 @@ const sidebar = document.getElementById('sidebar');
 
 menuBtn.addEventListener('click', () => {
     sidebar.classList.toggle('open');
+});
+
+['food', 'shopping', 'concert'].forEach(cat => {
+    document.getElementById(cat + '-btn').addEventListener('click', () => {
+        window.location.href = 'food.html?city=' + cityKey + '&cat=' + cat;
+    });
 });
