@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CCSA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="welcome-body">
+    <main class="welcome-card">
+        <h1>Welcome to CCSA</h1>
+        <p>Tell us a little about you to get started.</p>
+
+        <form id="welcome-form">
+            <label for="first-name">Name</label>
+            <input type="text" id="first-name" required>
+
+            <label for="last-name">Surname</label>
+            <input type="text" id="last-name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" min="1" max="120" required>
+
+            <label for="photo">Profile photo</label>
+            <input type="file" id="photo" accept="image/*" required>
+
+            <button type="submit">Enter</button>
+        </form>
+    </main>
+
+    <script src="welcome.js"></script>
+</body>
+</html>

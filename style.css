@@ -221,3 +221,54 @@ header {
     background: #f5a623;
     border-radius: 20px;
 }
+.profile-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border: 6px solid deepskyblue;
+    border-radius: 24px;
+}
+#contribute-note {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 3000;
+    background: #f5a623;
+    color: black;
+    font-family: Georgia, serif;
+    padding: 12px 22px;
+    border-radius: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#contribute-note.show {
+    opacity: 1;
+}
+#contribute-note {
+    bottom: auto;
+    transform: none;
+    max-width: 220px;
+    font-size: 0.85rem;
+}
+#contribute-note {
+    max-width: 160px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 12px;
+}
+.blackbook-image {
+    overflow: hidden;
+}
+
+.blackbook-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.blackbook-image {
+    border: 6px solid deepskyblue;
+    border-radius: 24px;
+}
